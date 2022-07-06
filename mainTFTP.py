@@ -1,10 +1,12 @@
+import fbtftp
+
 from fbtftp.base_handler import BaseHandler
 from fbtftp.base_server import BaseServer
 
 import os
+from os.path import exists
 
-
-LISTEN_ON = '0.0.0.0'
+LISTEN_ON = '192.168.178.61'
 SERVER_PORT = 69
 TFTP_ROOT = '/opt/ztp/tftproot'
 RETRIES = 3
@@ -14,7 +16,13 @@ TIMEOUT = 5
 class TftpData:
 
     def __init__(self, filename):
+        print(f"Filname: {filename}")
         path = os.path.join(TFTP_ROOT, filename)
+        print(f"Path: {path}")
+        file_exists = exists(path)
+        if not file_exists:
+            raise Exception("File doesnt exist")
+
         self._size = os.stat(path).st_size
         self._reader = open(path, 'rb')
 
@@ -52,10 +60,8 @@ def session_stats(stats):
 
 def main():
     server = TftpServer(LISTEN_ON, SERVER_PORT, RETRIES, TIMEOUT)
-    try:
-        server.run()
-    except KeyboardInterrupt:
-        server.close()
+    server.run()
+
 
 
 if __name__ == '__main__':
