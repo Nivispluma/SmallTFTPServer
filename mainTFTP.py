@@ -45,6 +45,7 @@ class StaticHandler(BaseHandler):
 class TftpServer(BaseServer):
 
     def get_handler(self, server_addr, peer, path, options):
+        print(f"listening on {LISTEN_ON}:{SERVER_PORT}")
         return StaticHandler(
             server_addr, peer, path, options, session_stats)
 
