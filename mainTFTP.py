@@ -66,7 +66,7 @@ def session_stats(stats):
     log_time = log_time.replace(".", "-")
 
     log_ipaddress = f"{stats.peer[0]}"
-    log_ipaddress = log_ipaddress.replace(".", "/")
+    log_ipaddress = log_ipaddress.replace(".", "-")
     print(log_ipaddress)
 
     current_log_file = open(f"log/{log_time}_{log_ipaddress}.txt", "w")
