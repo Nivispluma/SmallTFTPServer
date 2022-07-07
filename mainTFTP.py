@@ -60,12 +60,16 @@ def session_stats(stats):
     print('Sent Packets: {}'.format(stats.packets_sent))
     print('#' * 60)
 
-    log_time = f"{datetime.today().strftime('%Y-%m-%d')}"
+    log_time = f"{datetime.now()}"
+    log_time = log_time.replace(" ", "_")
+    log_time = log_time.replace(":", "-")
+    log_time = log_time.replace(".", "-")
+
     log_ipaddress = f"{stats.peer[0]}"
-    log_ipaddress.replace(".", "/")
+    log_ipaddress = log_ipaddress.replace(".", "/")
     print(log_ipaddress)
 
-    current_log_file = open(f"log/{log_time}-{log_ipaddress}.txt", "w")
+    current_log_file = open(f"log/{log_time}_{log_ipaddress}.txt", "w")
     print("Logfile created")
     current_log_file.write(f"Peer: {stats.peer[0]}:{stats.peer[1]}")
     current_log_file.write(f"File{stats.file_path}")
