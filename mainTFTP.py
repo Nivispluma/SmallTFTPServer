@@ -65,7 +65,7 @@ def session_stats(stats):
     log_ipaddress.replace(".", "/")
     print(log_ipaddress)
 
-    with open(f"log/{log_time}-{log_ipaddress}", "w") as current_log_file:
+    with open(f"log/{log_time}-{log_ipaddress}.txt", "w") as current_log_file:
         print("Logfile created")
     current_log_file.write(f"Peer: {stats.peer[0]}:{stats.peer[1]}")
     current_log_file.write(f"File{stats.file_path}")
