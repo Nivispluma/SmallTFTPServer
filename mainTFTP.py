@@ -7,7 +7,7 @@ import os
 from os.path import exists
 
 LISTEN_ON = '192.168.178.61'
-SERVER_PORT = 50102
+SERVER_PORT = 69
 TFTP_ROOT = '/opt/ztp/tftproot'
 RETRIES = 3
 TIMEOUT = 5
