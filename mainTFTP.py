@@ -8,7 +8,7 @@ from os.path import exists
 
 from datetime import datetime
 
-LISTEN_ON = '192.168.178.61'
+LISTEN_ON = '192.168.1.2'
 SERVER_PORT = 69
 TFTP_ROOT = 'opt/ztp/tftproot'
 RETRIES = 3
