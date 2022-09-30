@@ -1,4 +1,4 @@
-import fbtftp
+# import fbtftp
 
 from fbtftp.base_handler import BaseHandler
 from fbtftp.base_server import BaseServer
