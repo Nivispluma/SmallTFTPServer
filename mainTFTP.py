@@ -67,12 +67,15 @@ def session_stats(stats):
 
     log_ipaddress = f"{stats.peer[0]}"
     log_ipaddress = log_ipaddress.replace(".", "-")
-    print(log_ipaddress)
 
-    current_log_file = open(f"log/{log_time}_{log_ipaddress}.txt", "w")
+    log_requested_file = stats.file_path
+    log_file_changed_extention = log_requested_file.replace(".","-")
+    print(log_ipaddress)
+    
+    current_log_file = open(f"log/{log_time}_{log_file_changed_extention}_{log_ipaddress}.txt", "w")
     print("Logfile created")
     current_log_file.write(f"Peer: {stats.peer[0]}:{stats.peer[1]}")
-    current_log_file.write(f"File{stats.file_path}")
+    current_log_file.write(f"File {stats.file_path}")
     current_log_file.close()
     print("Logfile filled")
 
